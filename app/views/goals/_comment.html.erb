@@ -1,6 +1,5 @@
 <ul>
-<% user.comments.each do |comment| %>
-
+<% goal.comments.each do |comment| %>
   <li>
    <h4>Comment by <%= User.find(comment.user_id).username %></h4>
    <p><%= comment.body %></p>

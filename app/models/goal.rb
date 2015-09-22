@@ -29,6 +29,11 @@ class Goal < ActiveRecord::Base
     :user
   )
 
+  has_many(
+    :comments,
+    as: :commentable,
+    dependent: :destroy
+  )
 
   def set_to_incomplete!
     self.completeness ||= "Incomplete"
