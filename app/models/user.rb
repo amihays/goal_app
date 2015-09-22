@@ -21,17 +21,6 @@ class User < ActiveRecord::Base
     dependent: :destroy
   )
 
-  has_many :goal_comments,
-    foreign_key: :poster_id
-
-  has_many :user_comments,
-    foreign_key: :poster_id
-
-  has_many :received_comments,
-    class_name: :UserComment,
-    primary_key: :id,
-    foreign_key: :user_id
-
 
   def password=(password)
     @password =  password
