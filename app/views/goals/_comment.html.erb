@@ -1,0 +1,8 @@
+<ul>
+<% goal.goal_comments.each do |comment| %>
+  <li>
+   <h4>Comment by <%= comment.poster.username %></h4>
+   <p><%= comment.body %></p>
+ </li>
+<% end %>
+</ul>

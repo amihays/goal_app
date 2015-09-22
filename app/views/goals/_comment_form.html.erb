@@ -1,0 +1,10 @@
+<form action="/goal_comments" method="POST">
+  <%= auth_token %>
+  <input type='hidden' name="goal_comment[goal_id]" value="<%= goal.id %>">
+  <label>
+    Comment <br>
+    <textarea name="goal_comment[body]"></textarea>
+  </label>
+
+  <input type="submit" value="Comment">
+</form>

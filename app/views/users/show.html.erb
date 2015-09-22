@@ -1,0 +1,21 @@
+<h1><%= @user.username %></h1>
+
+<ul>
+<% @user.goals.each do |goal| %>
+  <% if (goal.visibility == 'Private' && current_user.id == goal.user_id) || goal.visibility == 'Public' %>
+    <li>
+      <%= link_to goal.title, goal_url(goal) %>,
+      <%= goal.completeness %>,
+      <%= goal.visibility %>
+      <%= render('users/complete', goal: goal) if goal.completeness == "Incomplete" %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+
+<% if current_user == @user %>
+  <%= link_to "Create New Goal", new_user_goal_url(@user) %>
+<% end %>
+
+<%= render 'users/comment', user: @user %>
+<%= render 'users/comment_form', user: @user %>
